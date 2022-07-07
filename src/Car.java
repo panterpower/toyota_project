@@ -1,10 +1,22 @@
 public abstract class Car {
-    int wheel;
+    private int wheel;
     double gastank;
     boolean engine = true;
     boolean electrics = true;
     boolean headlights = true;
 
+    //  конструктор, сеттер и геттер
+
+    public Car(int wheel, double gastank, boolean engine, boolean electrics, boolean headlights) {
+        this.wheel = wheel;
+        this.gastank = gastank;
+        this.engine = engine;
+        this.electrics = electrics;
+        this.headlights = headlights;
+    }
+
+
+    //
 
 
 

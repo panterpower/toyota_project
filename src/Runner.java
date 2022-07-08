@@ -5,6 +5,8 @@ public class Runner {
         System.out.println(car.getGastank());
         System.out.println(car.getWheel());
 
+//        4. Необходимо создать класс Runner и в нем создать все модели, и проверить работоспособность всех методов.
+
 //        Car camry = new PassengerCar();
 //        Car solara = new PassengerCar();
 //        Car hiance = new PassengerCar();

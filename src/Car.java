@@ -4,15 +4,31 @@ public abstract class Car {
     boolean engine = true;
     boolean electrics = true;
     boolean headlights = true;
+    String type;
 
-    //  конструктор, сеттер и геттер
-
+    //  конструктор
     public Car(int wheel, double gastank, boolean engine, boolean electrics, boolean headlights) {
         this.wheel = wheel;
         this.gastank = gastank;
         this.engine = engine;
         this.electrics = electrics;
         this.headlights = headlights;
+    }
+    // геттеры
+    public int getWheel() {
+        return wheel;
+    }
+    public double getGastank() {
+        return gastank;
+    }
+    public boolean isEngine() {
+        return engine;
+    }
+    public boolean isElectrics() {
+        return electrics;
+    }
+    public boolean isHeadlights() {
+        return headlights;
     }
 
 

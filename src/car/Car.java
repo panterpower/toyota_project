@@ -4,18 +4,6 @@ import car.details.*;
 
 public abstract class Car {
 
-
-
-//    Для всех машин характерны следующие функции:
-//    Начать движение - меняет состояние движения. Начать движение возможно только при: наличии всех колес и они не проколоты, непустом бензобаке,
-//    работоспособным электрике и двигателю. Если что то из этого невыполняется, то выкидывается ошибка StartCarException,
-//    в сообщении которой содержится причина невозможности движения.
-//    Остановить движение - меняет состояние движения. Для остановки не нужно условий.
-//    Включить фары - сообщает о работе фар.
-
-
-
-    //    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
     private String color;
     private int maxSpeed;
     private TransmissionType transmission;
@@ -44,16 +32,35 @@ public abstract class Car {
     public void start() throws StartCarException {
         if (!checkWheels()) {
             throw new StartCarException("Проблема с колесами");
+        } else if (gastank.getCurrentGasVolume() <= 0) {
+            throw new StartCarException("Пустой бензобак");
+        } else if (electrics.isBroken()) {
+            throw new StartCarException("Проблема с электрикой");
+        } else if (engine.isBroken()) {
+            throw new StartCarException("Проблема с двигателем");
+        } else if (headlights.isBroken()) {
+            throw new StartCarException("Проблема с фарами");
         }
 
         this.isMove = true;
 
     }
 
+    public void onHeadlights() {
+        if (!headlights.isBroken()) {
+            System.out.println("Включаем фары");
+        }
+    }
+
+    public void stop() {
+        this.isMove = false;
+    }
+
+
     public boolean checkWheels() {
         if (wheels == null) {
             return false;
-        } else if (wheels.length !=4) {
+        } else if (wheels.length != 4) {
             return false;
         }
 
@@ -63,10 +70,5 @@ public abstract class Car {
             }
         }
         return true;
-
-
     }
-
-
-
 }

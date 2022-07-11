@@ -1,8 +1,13 @@
+package car;
+
+import car.details.*;
+
 public abstract class Car {
 
 
+//3. Создать 4 модели авто: camry (легковой авто), solara (кабриолет), hiance (грузовой фургон), dyna (грузовой фургон)
 
-
+//    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
 //    Каждое колесо имеет состояние - проколото или нет, диаметр (camry - 17, solara - 16, hiance - 20, dyna - 20).
 //    Колеса могуть быть заменяемы если они одинакового диаметра.
 //    Бензобак имеет атрибут - количество бензина
@@ -12,43 +17,19 @@ public abstract class Car {
 //    Цена - с центами
 
 
-//    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
-    private int wheel;
-    double gastank;
-    boolean engine = true;
-    boolean electrics = true;
-    boolean headlights = true;
-    String type;
+    //    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
+    private String color;
+    private int maxSpeed;
+    private TransmissionType transmission;
+    private boolean isMove;
+    private double price;
+
+    private GasTank gastank;
+    private Engine engine;
+    private Electrics electrics;
+    private Headlights headlights;
 
 
-
-    //  конструктор
-    public Car(int wheel, double gastank, boolean engine, boolean electrics, boolean headlights) {
-        this.wheel = wheel;
-        this.gastank = gastank;
-        this.engine = engine;
-        this.electrics = electrics;
-        this.headlights = headlights;
-    }
-    // геттеры
-    public int getWheel() {
-        return wheel;
-    }
-    public double getGastank() {
-        return gastank;
-    }
-    public boolean isEngine() {
-        return engine;
-    }
-    public boolean isElectrics() {
-        return electrics;
-    }
-    public boolean isHeadlights() {
-        return headlights;
-    }
-
-
-    //
 
 
 

@@ -5,16 +5,14 @@ import car.details.*;
 public abstract class Car {
 
 
-//3. Создать 4 модели авто: camry (легковой авто), solara (кабриолет), hiance (грузовой фургон), dyna (грузовой фургон)
 
-//    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
-//    Каждое колесо имеет состояние - проколото или нет, диаметр (camry - 17, solara - 16, hiance - 20, dyna - 20).
-//    Колеса могуть быть заменяемы если они одинакового диаметра.
-//    Бензобак имеет атрибут - количество бензина
-//    Двигатель имеет атрибут - работоспособен
-//    Электрика имеет атрибут - работоспособна
-//    Фары имеют атрибут - работоспособны
-//    Цена - с центами
+//    Для всех машин характерны следующие функции:
+//    Начать движение - меняет состояние движения. Начать движение возможно только при: наличии всех колес и они не проколоты, непустом бензобаке,
+//    работоспособным электрике и двигателю. Если что то из этого невыполняется, то выкидывается ошибка StartCarException,
+//    в сообщении которой содержится причина невозможности движения.
+//    Остановить движение - меняет состояние движения. Для остановки не нужно условий.
+//    Включить фары - сообщает о работе фар.
+
 
 
     //    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
@@ -28,15 +26,47 @@ public abstract class Car {
     private Engine engine;
     private Electrics electrics;
     private Headlights headlights;
+    private Wheel[] wheels;
+
+    public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
+        this.color = color;
+        this.maxSpeed = maxSpeed;
+        this.transmission = transmission;
+        this.isMove = isMove;
+        this.price = price;
+        this.gastank = gastank;
+        this.engine = engine;
+        this.electrics = electrics;
+        this.headlights = headlights;
+        this.wheels = wheels;
+    }
+
+    public void start() throws StartCarException {
+        if (!checkWheels()) {
+            throw new StartCarException("Проблема с колесами");
+        }
+
+        this.isMove = true;
+
+    }
+
+    public boolean checkWheels() {
+        if (wheels == null) {
+            return false;
+        } else if (wheels.length !=4) {
+            return false;
+        }
+
+        for (Wheel wheel : wheels) {
+            if (wheel.isBroken()) {
+                return false;
+            }
+        }
+        return true;
 
 
+    }
 
-
-
-//    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
-//    Каждое колесо имеет состояние - проколото или нет, диаметр (camry - 17, solara - 16, hiance - 20, dyna - 20).
-//    Колеса могуть быть заменяемы если они одинакового диаметра.
-//    Бензобак имеет атрибут - количество бензина
 
 
 }

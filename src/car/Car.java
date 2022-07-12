@@ -10,19 +10,20 @@ public abstract class Car {
     private boolean isMove;
     private double price;
 
-    private GasTank gastank;
+    private GasTank gasTank;
     private Engine engine;
     private Electrics electrics;
     private Headlights headlights;
     private Wheel[] wheels;
 
-    public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
+    public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove,
+               double price, WheelRadius wheelRadius, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
         this.isMove = isMove;
         this.price = price;
-        this.gastank = gastank;
+        this.gasTank = gastank;
         this.engine = engine;
         this.electrics = electrics;
         this.headlights = headlights;
@@ -32,7 +33,7 @@ public abstract class Car {
     public void start() throws StartCarException {
         if (!checkWheels()) {
             throw new StartCarException("Проблема с колесами");
-        } else if (gastank.getCurrentGasVolume() <= 0) {
+        } else if (gasTank.getCurrentGasVolume() <= 0) {
             throw new StartCarException("Пустой бензобак");
         } else if (electrics.isBroken()) {
             throw new StartCarException("Проблема с электрикой");
@@ -56,6 +57,28 @@ public abstract class Car {
         this.isMove = false;
     }
 
+    public void checkCarHealth() {
+        String result = "";
+        if (!checkWheels()) {
+            result += "С колесами проблема ";
+        }
+        if (gasTank.getCurrentGasVolume() <= 0) {
+            result += "Бензобак пустой ";
+        }
+        if (engine.isBroken()) {
+            result += "Двигатель сломан ";
+        }
+        if (electrics.isBroken()) {
+            result += "Электрика сломана ";
+        }
+        if (headlights.isBroken()) {
+            result += "Фары сломаны ";
+        }
+        if (!result.equals("")) {
+            throw new RuntimeException(result);
+        }
+    }
+
 
     public boolean checkWheels() {
         if (wheels == null) {
@@ -64,10 +87,12 @@ public abstract class Car {
             return false;
         }
 
+
         for (Wheel wheel : wheels) {
             if (wheel.isBroken()) {
                 return false;
             }
+
         }
         return true;
     }

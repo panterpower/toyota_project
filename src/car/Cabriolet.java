@@ -6,10 +6,10 @@ public abstract class Cabriolet extends Car {
     private boolean isRoofOn;
 
     public Cabriolet(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,
-                     GasTank gastank, Engine engine, Electrics electrics,
-                     Headlights headlights, Wheel[] wheels, boolean roofOn) {
-        super(color, maxSpeed, transmission, isMove, price, gastank, engine, electrics, headlights, wheels);
-        isRoofOn = roofOn;
+                     WheelRadius wheelRadius, GasTank gastank, Engine engine, Electrics electrics,
+                     Headlights headlights, Wheel[] wheels, boolean isRoofOn) {
+        super(color, maxSpeed, transmission, isMove, price, wheelRadius, gastank, engine, electrics, headlights, wheels);
+        this.isRoofOn = isRoofOn;
     }
 
     public void changeRoof() {

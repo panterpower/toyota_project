@@ -1,8 +1,9 @@
 package car;
 
+import car.Car;
 import car.details.*;
 
-public class Camry extends Car{
+public class Camry extends Car {
     private Usb usb;
 
     public Camry(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,

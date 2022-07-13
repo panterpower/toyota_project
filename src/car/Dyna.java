@@ -2,7 +2,7 @@ package car;
 
 import car.details.*;
 
-public class Dyna extends CarVagan{
+public class Dyna extends CarVagan {
     private Socket socket;
 
     public Dyna(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,

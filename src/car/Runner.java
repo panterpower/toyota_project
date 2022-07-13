@@ -4,20 +4,16 @@ import car.details.*;
 
 public class Runner {
 
-    public static void main(String[] args) throws StartCarException{
+    public static void main(String[] args) throws StartCarException {
 
-        GasTank gasTank = new GasTank(0);
-        Engine engine = new Engine(true);
-        Electrics electrics = new Electrics(true);
-        Headlights headLights = new Headlights(true);
+        GasTank gasTank = new GasTank(50);
+        Engine engine = new Engine(false);
+        Electrics electrics = new Electrics(false);
+        Headlights headLights = new Headlights(false);
 
-        Camry camry = new Camry("white", 180, TransmissionType.ROBOT, true,
-                100_000.00, gasTank, engine, electrics, headLights,
-                createWheelsWithRadius(WheelRadius.R17), false, new Usb());
-
+        Camry camry = new Camry("black", 100, TransmissionType.ROBOT, true, 100_000.00, gasTank,
+                engine, electrics, headLights, createWheelsWithRadius(WheelRadius.R17), true, new Usb());
         camry.start();
-
-
     }
 
     public static Wheel[] createWheelsWithRadius(WheelRadius wheelRadius) {

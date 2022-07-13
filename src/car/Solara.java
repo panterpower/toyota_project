@@ -2,7 +2,7 @@ package car;
 
 import car.details.*;
 
-public class Solara extends Cabriolet{
+public class Solara extends Cabriolet {
     private MiniFridge miniFridge;
 
     public Solara(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,

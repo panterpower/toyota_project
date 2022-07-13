@@ -2,7 +2,7 @@ package car;
 
 import car.details.*;
 
-public class Hiance extends CarVagan{
+public class Hiance extends CarVagan {
     private Wheel safeWheel;
 
     public Hiance(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,

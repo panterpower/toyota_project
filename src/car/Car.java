@@ -17,7 +17,11 @@ public abstract class Car {
     private Wheel[] wheels;
 
     public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove,
+<<<<<<< HEAD
                double price, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
+=======
+               double price, WheelRadius wheelRadius, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
+>>>>>>> origin/master
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
@@ -78,6 +82,10 @@ public abstract class Car {
             throw new RuntimeException(result);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
     public boolean checkWheels() {
         if (wheels == null) {
@@ -86,10 +94,12 @@ public abstract class Car {
             return false;
         }
 
+
         for (Wheel wheel : wheels) {
             if (wheel.isBroken()) {
                 return false;
             }
+
         }
         return true;
     }

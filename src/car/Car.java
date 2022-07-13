@@ -17,7 +17,7 @@ public abstract class Car {
     private Wheel[] wheels;
 
     public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove,
-               double price, WheelRadius wheelRadius, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
+               double price, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
@@ -28,6 +28,9 @@ public abstract class Car {
         this.electrics = electrics;
         this.headlights = headlights;
         this.wheels = wheels;
+    }
+
+    public Car(int wheel, double gastank, boolean engine, boolean electrics, boolean headlights) {
     }
 
     public void start() throws StartCarException {
@@ -42,9 +45,7 @@ public abstract class Car {
         } else if (headlights.isBroken()) {
             throw new StartCarException("Проблема с фарами");
         }
-
         this.isMove = true;
-
     }
 
     public void onHeadlights() {
@@ -52,7 +53,6 @@ public abstract class Car {
             System.out.println("Включаем фары");
         }
     }
-
     public void stop() {
         this.isMove = false;
     }
@@ -79,7 +79,6 @@ public abstract class Car {
         }
     }
 
-
     public boolean checkWheels() {
         if (wheels == null) {
             return false;
@@ -87,12 +86,10 @@ public abstract class Car {
             return false;
         }
 
-
         for (Wheel wheel : wheels) {
             if (wheel.isBroken()) {
                 return false;
             }
-
         }
         return true;
     }

@@ -2,7 +2,7 @@ package car;
 
 import car.details.*;
 
-public abstract class CarVagan extends Car{
+public abstract class CarVagan extends Car {
     private int maxWeight;
 
     public CarVagan(String color, int maxSpeed, TransmissionType transmission, boolean isMove,

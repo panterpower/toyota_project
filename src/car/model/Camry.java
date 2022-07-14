@@ -1,4 +1,4 @@
-package car;
+package car.model;
 
 import car.details.*;
 

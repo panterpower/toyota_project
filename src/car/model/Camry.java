@@ -16,6 +16,7 @@ public class Camry extends Sedan {
         this.usb = usb;
     }
 
+
     public Usb getUsb() {
         return usb;
     }

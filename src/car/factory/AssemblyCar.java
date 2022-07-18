@@ -8,13 +8,6 @@ import car.model.Solara;
 
 public class AssemblyCar {
 
-//    2. Реализовать сборочный конвеер - класс, который будет использовать фабрику производств и отдавать нам готовые машины.
-//    Например должен быть метод, который принимает в себя два параметра - цвет и цену, а возвращает новую Camry.
-//    Необходимо создать 4 метода, которые будут создавать все наши модели: createCamry, createSolara, createHiance,
-//    createDyna. Сборочный конвеер может пользоваться только той фабрикой производств, которая находится в той же стране
-//            (Подумать где должна происходить эта проверка). Иначе должна появляться ошибка: CountyFactoryNotEqualException -
-//    в описании ошибки должны описаться страны которые не совпали.
-
     private Country country;
     private DetailsFactory detailsFactory;
 
@@ -36,7 +29,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R17);
         Usb usb = detailsFactory.CreateUsb();
 
-        return new Camry(color, 250, TransmissionType.AUTOMATIC, false, price, gasTank, engine,
+        return new Camry(color, 250, TransmissionType.ROBOT, false, price, gasTank, engine,
                 electrics, headlights, wheels, false, usb);
     }
 
@@ -75,7 +68,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R20);
         MiniFridge miniFridge = detailsFactory.CreateMiniFridge();
 
-        return new Solara(color, 100, TransmissionType.MECHANIC, false, price, gasTank, engine,
+        return new Solara(color, 100, TransmissionType.AUTOMATIC, false, price, gasTank, engine,
                 electrics, headlights, wheels, false, miniFridge);
     }
 }

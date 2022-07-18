@@ -3,7 +3,7 @@ package car.factory;
 import car.details.*;
 
 public class DetailsFactory {
-    public Country country;
+    private Country country;
 
     public DetailsFactory(Country country) {
         this.country = country;

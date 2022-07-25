@@ -9,7 +9,7 @@ import car.model.Solara;
 public class AssemblyCar {
 
     private Country country;
-    private DetailsFactory detailsFactory;
+    private static DetailsFactory detailsFactory;
 
     public AssemblyCar(Country country, DetailsFactory detailsFactory) throws CountyFactoryNotEqualException {
         if (country != detailsFactory.getCountry()) {
@@ -20,7 +20,7 @@ public class AssemblyCar {
         this.detailsFactory = detailsFactory;
     }
 
-    public Camry createCamry(String color, double price) {
+    public static Camry createCamry(String color, double price) {
         GasTank gasTank = detailsFactory.CreateGasTank();
         Engine engine = detailsFactory.CreateEngine();
         Electrics electrics = detailsFactory.CreateElectrics();

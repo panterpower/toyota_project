@@ -19,8 +19,12 @@ public class Runner {
                 engine, electrics, headLights, createWheelsWithRadius(WheelRadius.R17), true, new Usb());
         camry.start();
 
-        new Storage(11,22,33,44);
+//        new Storage(11,22,33,44);
 
+        Storage storage = new Storage();
+        System.out.println(storage.getAllCamry());
+
+        
 
     }
 

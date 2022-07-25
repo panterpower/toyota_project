@@ -1,14 +1,15 @@
 package car.model;
 
 import car.details.*;
+import car.factory.Country;
 
 public abstract class Cabriolet extends Car {
     private boolean isRoofOn;
 
     public Cabriolet(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,
-                     GasTank gastank, Engine engine, Electrics electrics,
+                     Country country, GasTank gastank, Engine engine, Electrics electrics,
                      Headlights headlights, Wheel[] wheels, boolean isRoofOn) {
-        super(color, maxSpeed, transmission, isMove, price, gastank, engine, electrics, headlights, wheels);
+        super(color, maxSpeed, transmission, isMove, price, country, gastank, engine, electrics, headlights, wheels);
 
         this.isRoofOn = isRoofOn;
     }

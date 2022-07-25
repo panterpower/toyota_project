@@ -1,12 +1,15 @@
 package car.model;
 
 import car.details.*;
+import car.factory.Country;
 
 public abstract class Sedan extends Car {
     private boolean isCruiseControlOn;
 
-    public Sedan(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price, GasTank gastank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels, boolean isCruiseControlOn) {
-        super(color, maxSpeed, transmission, isMove, price, gastank, engine, electrics, headlights, wheels);
+    public Sedan(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price,
+                 Country country, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights,
+                 Wheel[] wheels, boolean isCruiseControlOn) {
+        super(color, maxSpeed, transmission, isMove, price, country, gasTank, engine, electrics, headlights, wheels);
         this.isCruiseControlOn = isCruiseControlOn;
     }
 

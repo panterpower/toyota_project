@@ -1,6 +1,7 @@
 package car.model;
 
 import car.details.*;
+import car.factory.Country;
 
 public abstract class Car {
 
@@ -9,6 +10,7 @@ public abstract class Car {
     private TransmissionType transmission;
     private boolean isMove;
     private double price;
+    private Country country;
 
     private GasTank gasTank;
     private Engine engine;
@@ -16,16 +18,15 @@ public abstract class Car {
     private Headlights headlights;
     private Wheel[] wheels;
 
-    public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove,
-               double price, GasTank gastank, Engine engine, Electrics electrics,
-               Headlights headlights, Wheel[] wheels) {
-
+    public Car(String color, int maxSpeed, TransmissionType transmission, boolean isMove, double price, Country country,
+               GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Wheel[] wheels) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
         this.isMove = isMove;
         this.price = price;
-        this.gasTank = gastank;
+        this.country = country;
+        this.gasTank = gasTank;
         this.engine = engine;
         this.electrics = electrics;
         this.headlights = headlights;

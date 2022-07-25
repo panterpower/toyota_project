@@ -1,26 +1,40 @@
 package car.storage;
 
+import car.factory.AssemblyCar;
 import car.model.*;
 
 public class Storage {
-    private int allCars = 0;
 
-    private int countCamry;
-    private int countSolara;
-    private int countDyna;
-    private int countHiance;
+    private int freeSpace = 1_000;
+    private int countCamry = 0;
+    private int countSolara = 0;
+    private int countDyna = 0;
+    private int countHiance = 0;
+    Camry[] allCamry = new Camry[1000];
+    Solara[] allSolara = new Solara[1000];
+    Dyna[] allDyna = new Dyna[1000];
+    Hiance[] allHiance = new Hiance[1000];
 
-    public Storage(int countCamry, int countSolara, int countDyna, int countHiance) {
-        this.countCamry = countCamry;
-        this.countSolara = countSolara;
-        this.countDyna = countDyna;
-        this.countHiance = countHiance;
+    public Car[] getAllCamry() {
+        return allCamry;
     }
 
-    private Car[] camry = new Camry[countCamry];
-    private Car[] solara = new Solara[countSolara];
-    private Car[] dyna = new Dyna[countDyna];
-    private Car[] hiance = new Hiance[countHiance];
+    public Storage() {
 
+    }
+    public void addCamry(Camry camry) {
+        if(freeSpace > 0){
+            allCamry[countCamry] = camry;
+            freeSpace--;
+            countCamry++;
+        }
+    }
+
+    public Camry getCamry() {
+        Camry camry = allCamry[countCamry - 1];
+        allCamry[countCamry - 1] = null;
+        countCamry--;
+        return camry;
+    }
 
 }

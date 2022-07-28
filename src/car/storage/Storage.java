@@ -29,7 +29,6 @@ public class Storage {
             countCamry++;
         }
     }
-
     public Camry getCamry() {
         Camry camry = allCamry[countCamry - 1];
         allCamry[countCamry - 1] = null;
@@ -37,4 +36,45 @@ public class Storage {
         return camry;
     }
 
+    public void addDyna(Dyna dyna) {
+        if(freeSpace > 0){
+            allDyna[countDyna] = dyna;
+            freeSpace--;
+            countDyna++;
+        }
+    }
+    public Dyna getDyna() {
+        Dyna dyna = allDyna[countDyna - 1];
+        allDyna[countDyna - 1] = null;
+        countDyna--;
+        return dyna;
+    }
+
+    public void addHiance(Hiance hiance) {
+        if(freeSpace > 0){
+            allHiance[countHiance] = hiance;
+            freeSpace--;
+            countHiance++;
+        }
+    }
+    public Hiance getHiance() {
+        Hiance hiance = allHiance[countHiance - 1];
+        allHiance[countHiance - 1] = null;
+        countHiance--;
+        return hiance;
+    }
+
+    public void addSolara(Solara solara) {
+        if(freeSpace > 0){
+            allSolara[countSolara] = solara;
+            freeSpace--;
+            countSolara++;
+        }
+    }
+    public Solara getSolara() {
+        Solara solara = allSolara[countSolara - 1];
+        allSolara[countSolara - 1] = null;
+        countSolara--;
+        return solara;
+    }
 }

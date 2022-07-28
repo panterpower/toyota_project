@@ -8,7 +8,8 @@ import car.model.Solara;
 
 public class AssemblyCar {
 
-    private Country country;
+    private static Country country;
+
     private static DetailsFactory detailsFactory;
 
     public AssemblyCar(Country country, DetailsFactory detailsFactory) throws CountyFactoryNotEqualException {
@@ -29,7 +30,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R17);
         Usb usb = detailsFactory.CreateUsb();
 
-        return new Camry(color, 250, TransmissionType.ROBOT, false, price, gasTank, engine,
+        return new Camry(color, 250, TransmissionType.ROBOT, false, price, country, gasTank, engine,
                 electrics, headlights, wheels, false, usb);
     }
 
@@ -42,7 +43,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R20);
         Socket socket = new Socket();
 
-        return new Dyna(color, 100, TransmissionType.MECHANIC, false, price, gasTank, engine,
+        return new Dyna(color, 100, TransmissionType.MECHANIC, false, price, country, gasTank, engine,
                 electrics, headlights, wheels, 1000, socket);
     }
 
@@ -55,7 +56,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R20);
         Wheel safeWheel = detailsFactory.createSpareWheel(WheelRadius.R20);
 
-        return new Hiance(color, 100, TransmissionType.MECHANIC, false, price, gasTank, engine,
+        return new Hiance(color, 100, TransmissionType.MECHANIC, false, price, country, gasTank, engine,
                 electrics, headlights, wheels, 1200, safeWheel);
     }
 
@@ -68,7 +69,7 @@ public class AssemblyCar {
         Wheel[] wheels = detailsFactory.CreateWheels(WheelRadius.R20);
         MiniFridge miniFridge = detailsFactory.CreateMiniFridge();
 
-        return new Solara(color, 100, TransmissionType.AUTOMATIC, false, price, gasTank, engine,
+        return new Solara(color, 100, TransmissionType.AUTOMATIC, false, price, country, gasTank, engine,
                 electrics, headlights, wheels, false, miniFridge);
     }
 }

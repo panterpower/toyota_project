@@ -21,7 +21,7 @@ public class AssemblyCar {
         this.detailsFactory = detailsFactory;
     }
 
-    public static Camry createCamry(String color, double price) {
+    public Camry createCamry(String color, double price) {
         GasTank gasTank = detailsFactory.CreateGasTank();
         Engine engine = detailsFactory.CreateEngine();
         Electrics electrics = detailsFactory.CreateElectrics();

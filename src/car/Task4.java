@@ -4,16 +4,29 @@ import car.factory.AssemblyCar;
 import car.factory.Country;
 import car.factory.CountyFactoryNotEqualException;
 import car.factory.DetailsFactory;
+import car.model.Camry;
+import car.model.Dyna;
+import car.model.Hiance;
+import car.model.Solara;
 import car.storage.Storage;
 
 public class Task4 {
     public static void main(String[] args) {
 
-
         try {
             DetailsFactory detailsFactory = new DetailsFactory(Country.JAPAN);
             AssemblyCar assemblyCar = new AssemblyCar(Country.JAPAN, detailsFactory);
-            new Storage();
+            Storage storage = new Storage();
+            Camry camry = assemblyCar.createCamry("black", 10_000);
+            Solara solara = assemblyCar.createSolara("white", 12_000);
+            Hiance hiance = assemblyCar.createHiance("black", 15_000);
+            Dyna dyna = assemblyCar.createDyna("black", 22_000);
+
+            storage.addCar(camry);
+            storage.addCar(solara);
+            storage.addCar(hiance);
+            storage.addCar(dyna);
+
 
         } catch (CountyFactoryNotEqualException e) {
 //            throw new RuntimeException(e);

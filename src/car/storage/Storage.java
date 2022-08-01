@@ -10,6 +10,8 @@ public class Storage {
     private int countSolara = 0;
     private int countDyna = 0;
     private int countHiance = 0;
+    private int countCar = 0;
+    private Car[] cars = new Car[1000];
     Camry[] allCamry = new Camry[1000];
     Solara[] allSolara = new Solara[1000];
     Dyna[] allDyna = new Dyna[1000];
@@ -20,7 +22,13 @@ public class Storage {
     }
 
     public Storage() {
-
+    }
+    public void addCar(Car car) {
+        if (freeSpace > 0) {
+            cars[countCar]  = car;
+            countCar++;
+            freeSpace--;
+        }
     }
     public void addCamry(Camry camry) {
         if(freeSpace > 0){

@@ -1,6 +1,5 @@
 package car.storage;
 
-import car.factory.AssemblyCar;
 import car.model.*;
 
 public class Storage {
@@ -37,7 +36,7 @@ public class Storage {
             countCamry++;
         }
     }
-    public Camry getCamry() {
+    public Camry getCamry(Class<Camry> camryClass) {
         Camry camry = allCamry[countCamry - 1];
         allCamry[countCamry - 1] = null;
         countCamry--;
@@ -51,7 +50,7 @@ public class Storage {
             countDyna++;
         }
     }
-    public Dyna getDyna() {
+    public Dyna getDyna(Class<Dyna> dynaClass) {
         Dyna dyna = allDyna[countDyna - 1];
         allDyna[countDyna - 1] = null;
         countDyna--;
@@ -65,7 +64,7 @@ public class Storage {
             countHiance++;
         }
     }
-    public Hiance getHiance() {
+    public Hiance getHiance(Class<Hiance> hianceClass) {
         Hiance hiance = allHiance[countHiance - 1];
         allHiance[countHiance - 1] = null;
         countHiance--;
@@ -79,7 +78,7 @@ public class Storage {
             countSolara++;
         }
     }
-    public Solara getSolara() {
+    public Solara getSolara(Class<Solara> solaraClass) {
         Solara solara = allSolara[countSolara - 1];
         allSolara[countSolara - 1] = null;
         countSolara--;

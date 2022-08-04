@@ -1,7 +1,7 @@
 package car.sales;
 
 import car.factory.AssemblyCar;
-import car.model.Car;
+import car.model.*;
 import car.storage.Storage;
 
 public class Manager {
@@ -15,8 +15,38 @@ public class Manager {
 
     public Car saleCar(Customer customer) {
         if (customer.getMoney() >= 22_000) {
-            return storage.getDyna();
-
+            try {
+                return storage.getDyna(Dyna.class);
+            } catch (RuntimeException e) {
+                Dyna dyna = assemblyCar.createDyna("black", 22_000);
+                storage.addCar(dyna);
+                storage.getDyna(Dyna.class);
+            }
+        } else if (customer.getMoney() >= 15_000) {
+            try {
+                return storage.getHiance(Hiance.class);
+            } catch (RuntimeException e) {
+                Hiance hiance = assemblyCar.createHiance("black", 15_000);
+                storage.addCar(hiance);
+                storage.getHiance(Hiance.class);
+            }
+        } else if (customer.getMoney() >= 12_000) {
+            try {
+                return storage.getSolara(Solara.class);
+            } catch (RuntimeException e) {
+                Solara solara = assemblyCar.createSolara("white", 12_000);
+                storage.addCar(solara);
+                storage.getSolara(Solara.class);
+            }
+        } else if (customer.getMoney() >= 10_000) {
+            try {
+                return storage.getCamry(Camry.class);
+            } catch (RuntimeException e) {
+                Camry camry = assemblyCar.createCamry("black", 10_000);
+                storage.addCar(camry);
+                storage.getCamry(Camry.class);
+            }
         }
+        throw new RuntimeException("Клиент без денег");
     }
 }

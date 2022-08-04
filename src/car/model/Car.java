@@ -98,4 +98,8 @@ public abstract class Car {
         }
         return true;
     }
+
+    public double getPrice() {
+        return price;
+    }
 }

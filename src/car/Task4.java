@@ -8,6 +8,9 @@ import car.model.Camry;
 import car.model.Dyna;
 import car.model.Hiance;
 import car.model.Solara;
+import car.sales.Casher;
+import car.sales.Customer;
+import car.sales.Manager;
 import car.storage.Storage;
 
 public class Task4 {
@@ -26,6 +29,22 @@ public class Task4 {
             storage.addCar(solara);
             storage.addCar(hiance);
             storage.addCar(dyna);
+
+            Manager manager = new Manager(storage, assemblyCar);
+            Casher casher = new Casher();
+
+            Customer[] customers = {new Customer(10000, "Sergey"),
+                    new Customer(12000, "Sergey"),
+                    new Customer(15000, "Sergey"),
+                    new Customer(22000, "Sergey"),
+                    new Customer(11000, "Sergey"),
+                    new Customer(13000, "Sergey"),
+                    new Customer(8000, "Sergey"),
+                    new Customer(30000, "Sergey")};
+
+            for (Customer customer : customers) {
+                manager.saleCar(customer);
+            }
 
 
         } catch (CountyFactoryNotEqualException e) {
@@ -48,14 +67,7 @@ public class Task4 {
 //        4. Создать кассира: кассир принимает заказ - берет машину, и заносит в общий для всех кассиров счет доходов.
 //
 //        В первый день придет 8 покупателей.
-//                у первого будет 10000 - уйдет с камри, которая в наличии
-//        у второго будет 12000 - уйдет с камри, которая в наличии
-//        у третьего будет 15000 - уйдет с камри, которая в наличии
-//        у четвертого будет 22000 - уйдет с камри, которая в наличии
-//        у пятого будет 11000 - уйдет с камри, из производства
-//        у шестого будет 13000 - уйдет с соларой, из производства
-//        у седьмого будет 8000 - уйдет ни с чем
-//        у восьмого будет 30000 - уйдет с дюной, из производства
+
 //
 //        Процесс продажи:
 //        Создается менеджер

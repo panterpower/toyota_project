@@ -4,11 +4,9 @@ import car.factory.AssemblyCar;
 import car.factory.Country;
 import car.factory.CountyFactoryNotEqualException;
 import car.factory.DetailsFactory;
-import car.model.Camry;
-import car.model.Dyna;
-import car.model.Hiance;
-import car.model.Solara;
+import car.model.*;
 import car.sales.Casher;
+import car.sales.ClientHasNotMoneyException;
 import car.sales.Customer;
 import car.sales.Manager;
 import car.storage.Storage;
@@ -43,8 +41,14 @@ public class Task4 {
                     new Customer(30000, "Sergey")};
 
             for (Customer customer : customers) {
-                manager.saleCar(customer);
+                try {
+                    Car car = manager.saleCar(customer);
+                    casher.makeOrder(car);
+
+                } catch (ClientHasNotMoneyException e) {
+                }
             }
+            Casher.getTotalIncomes();
 
 
         } catch (CountyFactoryNotEqualException e) {

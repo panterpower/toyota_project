@@ -13,8 +13,8 @@ public class Manager {
         this.assemblyCar = assemblyCar;
     }
 
-    public Car saleCar(Customer customer) {
-        if (customer.getMoney() >= 22_000) {
+    public Car saleCar(Customer customer) throws ClientHasNotMoneyException {
+        if (customer.getMoney() >= 22_000d) {
             try {
                 return storage.getDyna(Dyna.class);
             } catch (RuntimeException e) {
@@ -22,7 +22,7 @@ public class Manager {
                 storage.addCar(dyna);
                 storage.getDyna(Dyna.class);
             }
-        } else if (customer.getMoney() >= 15_000) {
+        } else if (customer.getMoney() >= 15_000d) {
             try {
                 return storage.getHiance(Hiance.class);
             } catch (RuntimeException e) {
@@ -30,7 +30,7 @@ public class Manager {
                 storage.addCar(hiance);
                 storage.getHiance(Hiance.class);
             }
-        } else if (customer.getMoney() >= 12_000) {
+        } else if (customer.getMoney() >= 12_000d) {
             try {
                 return storage.getSolara(Solara.class);
             } catch (RuntimeException e) {
@@ -38,7 +38,7 @@ public class Manager {
                 storage.addCar(solara);
                 storage.getSolara(Solara.class);
             }
-        } else if (customer.getMoney() >= 10_000) {
+        } else if (customer.getMoney() >= 10_000d) {
             try {
                 return storage.getCamry(Camry.class);
             } catch (RuntimeException e) {
@@ -47,6 +47,6 @@ public class Manager {
                 storage.getCamry(Camry.class);
             }
         }
-        throw new RuntimeException("Клиент без денег");
+        throw new ClientHasNotMoneyException("Клиент без денег");
     }
 }
